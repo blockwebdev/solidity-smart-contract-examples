@@ -7,7 +7,7 @@ interface ERC20 {
     function transferFrom(address sender, address recipient, uint256 amount) external;
     function balanceOf(address holder) external returns (uint256);
 }
-
+// chainlink price feed
 interface AggregatorV3Interface {
   function decimals() external view returns (uint8);
 
@@ -22,28 +22,28 @@ interface AggregatorV3Interface {
       uint80 answeredInRound
     );
 }
-
+// the bet
 contract BitSignal {
 
     uint256 constant BET_LENGTH = 90 days;
     uint256 constant PRICE_THRESHOLD = 1_000_000; // 1 million USD per BTC
     uint256 constant USDC_AMOUNT = 1_000_000e6;
     uint256 constant WBTC_AMOUNT = 1e8;
-
+    // pointer to the smart contracts for usdc and wbtc
     ERC20 constant USDC = ERC20(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48); // 6 decimals
     ERC20 constant WBTC = ERC20(0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599); // 8 decimals
-
+    // pointer to the contract of chainlink oracle, gets price of bitcoin
     AggregatorV3Interface priceFeed = AggregatorV3Interface(0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c); // 8 decimals
-
+    // addresses of betters
     address public immutable balajis;
     address public immutable counterparty;
-    
+    // was the collateral deposited and bet initiated?
     bool internal usdcDeposited;
     bool internal wbtcDeposited;
     bool public betInitiated;
 
     uint256 public startTimestamp;
-
+    // inititalize addresses of both parties, lines 38&39 do this already
     constructor(address _balajis, address _counterparty) {
         balajis = _balajis;
         counterparty = _counterparty;
