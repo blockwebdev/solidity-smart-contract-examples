@@ -1,5 +1,6 @@
 # solidity-smart-contract-examples
 
+*from 0xfoobar, Balaji's bet
 *bitsignal.sol* -- An immutable smart contract that enables 1M USDC vs 1 BTC bet.
 
 1. Define two addresses to participate in the bet.
