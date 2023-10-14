@@ -1,5 +1,8 @@
 # solidity-smart-contract-examples
 
+10-14-2023 
+Decentralized Cupcakes project, issues on local contract interactions, unrecognized selector,5 
+
 *from 0xfoobar, Balaji's bet <br>
 *bitsignal.sol* -- An immutable smart contract that enables 1M USDC vs 1 BTC bet.
 
