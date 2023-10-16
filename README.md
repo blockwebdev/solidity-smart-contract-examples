@@ -1,6 +1,18 @@
 # solidity-smart-contract-examples
 
-10-14-2023 
+---------- 10-16-2023 ------------------
+Decentralized cupcakes demo project. 
+There were 2 errors after deploying the contract:
+1) Error: Transaction reverted: function selector was not recognized and there's no fallback nor receive function
+2) eth_estimateGas
+* in hardhat.config, added property - initialBaseFeePerGas: 0 - (for eth_estimateGas) FIXED.
+* in VendingMachine.sol, added functions - receive() and fallback() - (for function selector not recognized, no fallback nor receive) FIXED.
+Still unable to get metamask pop-up to sign the transaction from front-end after inputting contract address to receive cupcake,
+seems to be Hardhat local node issue only. Should work on Testnet/Mainnet without issues per forums.
+Transactions directly in Metamask working fine.
+
+
+------------ 10-14-2023 ------------------ 
 Decentralized Cupcakes project, issues on local contract interactions, unrecognized selector,5 
 
 *from 0xfoobar, Balaji's bet <br>
